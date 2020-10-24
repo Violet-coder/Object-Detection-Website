@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User_page</title>
+  <link rel="stylesheet" href="../static/bootstrap/mobirise-icons.css">
+  <link rel="stylesheet" href="../static/bootstrap/tether.min.css">
+  <link rel="stylesheet" href="../static/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/bootstrap/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../static/bootstrap/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="../static/bootstrap/album.css">
+  <link rel="stylesheet" href="../static/bootstrap/style.css">
+  <link rel="stylesheet" href="../static/bootstrap/user.css">
+  <link rel="stylesheet" href="../static/bootstrap/mbr-additional.css" type="text/css">
+
+
+
+</head>
+
+<body>
+
+
+<section class="cid-qyvHxX98kc mbr-parallax-background" id="header2-5" data-rv-view="6791">
+
+    <div class="mbr-overlay" style="opacity: 0.4; background-image:url('../static/bootstrap/background1.jpg') ; background-position: center; background-repeat: no-repeat;background-size: cover;"></div>
+
+    <div class="container align-center">
+        <div class="row justify-content-md-center">
+            <div class="mbr-white col-md-10">
+                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-7"><span style="font-weight: normal;"></span></h1>
+                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-1"><strong>
+                    Welcome back{{ username }}</strong></h3>
+                <p class="mbr-text pb-3 mbr-fonts-style display-5">
+                    A Photo Book For Every Memory And Occasion
+                </p>
+                <div class="navbar-buttons mbr-section-btn">
+                    <a class="btn btn-sm btn-primary display-4" href="{{ url_for('upload_photo',username = username) }}">
+                    UPLOAD NOW</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="features2 cid-qyvQ2gAtvk" id="features2-7" data-rv-view="6794">
+    <div class="container">
+        <div class="row images-wrapper">
+        {% if imgURL %}
+            {% for key in imgURL%}
+                <div class="card p-3 col-12 col-md-6 col-lg-4">
+                    <div class="card-wrapper">
+                        <div class="card-img">
+                            <a href = "{{ url_for('detail_function',username=username, photo_id=key)}}">
+                                <img width='300px' src="../{{imgURL[key]}}" title="" media-simple="true"></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="mbr-text pb-3 mbr-fonts-style display-5">
+                You haven't uploaded any image.</p>
+        {% endif %}
+        </div>
+    </div>
+
+</section>
+
+<section class="cid-qyvHxX98kc mbr-parallax-background" id="header2-5" data-rv-view="6791">
+    <div class="container align-center">
+    <div class="navbar-buttons mbr-section-btn">
+        <a class="btn btn-sm btn-primary display-4" href="{{ url_for('user_logout',username = username) }}">
+            LOG OUT</a>
+    </div></div>
+</section>
+
+  <script src="../static/bootstrap/jquery.min.js"></script>
+  <script src="../static/bootstrap/bootstrap.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Upload</title>
+    <link rel="stylesheet" href="../static/bootstrap/mobirise-icons.css">
+    <link rel="stylesheet" href="../static/bootstrap/tether.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/album.css">
+    <link rel="stylesheet" href="../static/bootstrap/style.css">
+    <link rel="stylesheet" href="../static/bootstrap/user.css">
+    <link rel="stylesheet" href="../static/bootstrap/mbr-additional.css" type="text/css">
+</head>
+
+<body>
+<section class="cid-qyvHxX98kc mbr-parallax-background" id="header2-5" data-rv-view="6791">
+
+    <div class="mbr-overlay" style="opacity: 0.4; background-image:url('../static/bootstrap/background1.jpg') ; background-position: center; background-repeat: no-repeat;background-size: cover;"></div>
+
+    <div class="container align-center">
+        <div class="row justify-content-md-center">
+            <div class="mbr-white col-md-10">
+                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-7"><span style="font-weight: normal;"></span></h1>
+                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-1"><strong>
+                    Hello {{ username }}</strong></h3>
+                <p class="mbr-text pb-3 mbr-fonts-style display-5">
+                    Please choose your photo, only 'png', 'jpg', 'jpeg' file under 5M are allowed!
+                </p>
+                <form method='POST' action="" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    {{ form.file() }}<br><br>
+                    {{ form.submit() }}<br><br><br>
+                </form>
+                    {% for message in get_flashed_messages() %}
+                    {{ message }}
+                    {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>
+
